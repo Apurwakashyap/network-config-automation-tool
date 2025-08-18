@@ -1,0 +1,10 @@
+devices:
+  - name: DevNet-Sandbox
+    host: "devnetsandboxiosxe.cisco.com"
+    port: 830  # Make sure this is correct for NETCONF
+    username: "admin"
+    password: "C1sco12345"
+    hostkey_verify: false
+
+
+
