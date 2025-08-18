@@ -34,13 +34,14 @@ network-config-automation-tool/
 
 
 ---
-
+```
 ## 🔧 Setup
 
 1. **Clone this repository**
    ```bash
    git clone https://github.com/your-username/network-config-automation-tool.git
    cd network-config-automation-tool
+   ```
 2.Create a virtual environment(If want to  create virtual environment)
 
 ```bash
@@ -51,7 +52,7 @@ venv\Scripts\activate      # On Windows
 3.Install dependencies
 pip install -r requirements.txt
 
-
+```
 ⚙️ Configuration
 1. Device Inventory (inventory/devices.yaml)
 Define the devices you want to configure:
