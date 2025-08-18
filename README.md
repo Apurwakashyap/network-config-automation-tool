@@ -17,6 +17,7 @@ A simple reporting script is also included to verify device connectivity.
 ---
 
 ## 📂 Project Structure
+```bash
 network-config-automation-tool/
 │── configs/
 │   └── interface_config.xml
@@ -42,6 +43,7 @@ network-config-automation-tool/
    cd network-config-automation-tool
 2.Create a virtual environment(If want to  create virtual environment)
 
+```bash
 python3 -m venv venv
 source venv/bin/activate   # On Linux/Mac
 venv\Scripts\activate      # On Windows
