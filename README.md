@@ -5,6 +5,14 @@ This project automates configuration deployment across multiple routers and incl
 
 ---
 
+## 🧰 Technologies Used
+
+- Python
+- YAML
+- NETCONF
+- ncclient
+- Socket Programming
+  
 ## 🚀 Features
 - Automates pushing configurations to multiple devices
 - Uses **NETCONF (port 830)** for configuration management
@@ -18,69 +26,75 @@ This project automates configuration deployment across multiple routers and incl
 ## 📂 Project Structure
 ```bash
 network-config-automation-tool/
-│── configs/
+│
+├── configs/
 │   └── interface_config.xml
-│── inventory/
+├── inventory/
 │   └── devices.yaml
-│── logs/
+├── logs/
 │   └── config.log
-│── main.py
-│── report.py
+├── main.py
+├── report.py
 ├── check_devices.py
-│── requirements.txt
-│── README.md
-│── .gitignore
-
-
-
+├── requirements.txt
+├── .gitignore
+└── README.md
 ---
 ```
 ## 🔧 Setup
 
 1. **Clone this repository**
    ```bash
-   git clone https://github.com/your-username/network-config-automation-tool.git
+   git clone https://github.com/Apurwakashyap/network-config-automation-tool.git
    cd network-config-automation-tool
    ```
-2.Create a virtual environment(If want to  create virtual environment)
+2.*Create a virtual environment(If want to  create virtual environment)*
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate   # On Linux/Mac
 venv\Scripts\activate      # On Windows
 
-3.Install dependencies
+```
+3.**Install dependencies**
+```bash
 pip install -r requirements.txt
-
 ```
 
+      
 ⚙️ Configuration
-1. Device Inventory (inventory/devices.yaml)
+1.Device Inventory (inventory/devices.yaml)
 Define the devices you want to configure:
+```yaml
 
 devices:
-  - name: iosxe-router
-    host: devnetsandboxiosxe.cisco.com
+  - name: router1
+    host: <router-ip>
     port: 830
-    username: developer
-    password: C1sco12345
+    username: <username>
+    password: <password>
     hostkey_verify: false
+```
+- **name** – Device identifier
+- **host** – Router IP address
+- **port** – NETCONF port (default 830)
+- **username/password** – Device credentials
+- **hostkey_verify** – Disable SSH host key verification
 
-▶️ Usage
-Run the automation script
+
+## ⚙️ Automation Workflow
+
+1. Check device connectivity
+
+python check_devices.py
+
+2. Deploy configuration
+
 python main.py
 
-✅ Requirements
-Python 3.x
+3. View logs
 
-Libraries:
-
-ncclient
-
-PyYAML
-
-pytest (for testing)
-
+logs/config.log
 
 📖 References
 Cisco DevNet Sandbox
