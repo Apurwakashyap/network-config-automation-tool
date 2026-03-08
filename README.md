@@ -86,15 +86,15 @@ devices:
 
 1. Check device connectivity
 
-python check_devices.py
+    python check_devices.py
 
 2. Deploy configuration
 
-python main.py
+    python main.py
 
 3. View logs
 
-logs/config.log
+   logs/config.log
 
 📖 References
 Cisco DevNet Sandbox
