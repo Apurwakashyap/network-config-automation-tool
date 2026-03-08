@@ -3,10 +3,10 @@ from ncclient import manager
 import logging
 
 # Setup logging
-logging.basicConfig
-(filename="logs/config.log", 
-level=logging.INFO,
-format="%(asctime)s - %(levelname)s - %(message)s"
+logging.basicConfig(
+      filename="logs/config.log", 
+      level=logging.INFO,
+      format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
 # Load devices from YAML
@@ -23,10 +23,10 @@ for device in devices:
         # Copy the device dictionary but remove the 'name' key
         conn_params = {k: v for k, v in device.items() if k != "name"}
 
-         with manager.connect(timeout=30, **conn_params) as m:
+        with manager.connect(timeout=30, **conn_params) as m:
             m.edit_config(target="running", config=config_payload)
             logging.info(f"Successfully configured {device['name']}")
-            print(f"[✓] Configured {device['name']}")
+            print(f"[✓] Configured {device['name']} ({device['host']})")
     except Exception as e:
         logging.error(f"Error configuring {device['name']}: {e}")
         print(f"[x] Failed to configure {device['name']}: {e}")
