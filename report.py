@@ -1,11 +1,25 @@
+import yaml
 import socket
+import logging
 
-host = "devnetsandboxiosxe.cisco.com"
+logging.basicConfig(
+    filename="logs/reachability.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+# Load devices from inventory
+with open("inventory/devices.yaml") as f:
+    devices = yaml.safe_load(f)["devices"]
 port = 830
 
-# Try to connect to the device on port 830
-try:
-    with socket.create_connection((host, port), timeout=10):
-        print(f"Port {port} is open on {host}")
-except (socket.timeout, socket.error) as e:
-    print(f"Could not connect to {host} on port {port}: {e}")
+for device in devices:
+    host = device["host"]
+
+    try:
+        with socket.create_connection((host, port), timeout=10):
+            print(f"[✓] NETCONF reachable on {device['name']} ({host})")
+            logging.info(f"NETCONF reachable on {device['name']} ({host})")
+
+    except Exception as e:
+        print(f"[x] Cannot reach {device['name']} ({host})")
+        logging.error(f"Cannot reach {device['name']} ({host}): {e}")
