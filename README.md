@@ -1,8 +1,7 @@
 # 🛠 Network Configuration Automation Tool
 
-This project automates **network device configuration** using **NETCONF** and **YANG** models.  
-It connects to devices (like Cisco IOS-XE) via `ncclient` and applies pre-defined XML/YANG configurations.  
-A simple reporting script is also included to verify device connectivity.
+Python-based automation tool to configure network devices using NETCONF and YAML-based inventory.  
+This project automates configuration deployment across multiple routers and includes device reachability checks and logging.
 
 ---
 
@@ -27,6 +26,7 @@ network-config-automation-tool/
 │   └── config.log
 │── main.py
 │── report.py
+├── check_devices.py
 │── requirements.txt
 │── README.md
 │── .gitignore
@@ -53,6 +53,7 @@ venv\Scripts\activate      # On Windows
 pip install -r requirements.txt
 
 ```
+
 ⚙️ Configuration
 1. Device Inventory (inventory/devices.yaml)
 Define the devices you want to configure:
