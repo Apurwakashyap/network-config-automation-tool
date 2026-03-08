@@ -2,6 +2,9 @@ import yaml
 from ncclient import manager
 import logging
 
+# create logs directory if it doesn't exist
+os.makedirs("logs", exist_ok=True)
+
 # Setup logging
 logging.basicConfig(
       filename="logs/config.log", 
