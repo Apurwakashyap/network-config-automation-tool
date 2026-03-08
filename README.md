@@ -50,16 +50,16 @@ network-config-automation-tool/
    ```
 2. *Create a virtual environment(If want to  create virtual environment)*
 
-```bash
-python3 -m venv venv
-source venv/bin/activate   # On Linux/Mac
-venv\Scripts\activate      # On Windows
+  ```bash
+  python3 -m venv venv
+  source venv/bin/activate   # On Linux/Mac
+  venv\Scripts\activate      # On Windows
 
-```
+  ```
 3. **Install dependencies**
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
       
 ## ⚙️ Configuration
