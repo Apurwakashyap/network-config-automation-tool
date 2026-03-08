@@ -3,7 +3,11 @@ from ncclient import manager
 import logging
 
 # Setup logging
-logging.basicConfig(filename="logs/config.log", level=logging.INFO)
+logging.basicConfig
+(filename="logs/config.log", 
+level=logging.INFO,
+format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 # Load devices from YAML
 with open("inventory/devices.yaml") as f:
