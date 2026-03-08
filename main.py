@@ -19,7 +19,7 @@ for device in devices:
         # Copy the device dictionary but remove the 'name' key
         conn_params = {k: v for k, v in device.items() if k != "name"}
 
-        with manager.connect(**conn_params) as m:
+         with manager.connect(timeout=30, **conn_params) as m:
             m.edit_config(target="running", config=config_payload)
             logging.info(f"Successfully configured {device['name']}")
             print(f"[✓] Configured {device['name']}")
